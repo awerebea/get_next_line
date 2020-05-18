@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:59:14 by awerebea          #+#    #+#             */
-/*   Updated: 2020/05/17 22:30:19 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/05/18 09:42:56 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,50 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*result;
-	char	*result_ptr;
 	size_t	len;
+	size_t	start;
 
 	if (!s1 || !s2)
 		return (NULL);
-	len = ft_strlen(s1);
-	len += ft_strlen(s2);
+	start = (size_t)s1;
+	while (*s1)
+		s1++;
+	len = ((size_t)s1 - start);
+	s1 -= ((size_t)s1 - start);
+	start = (size_t)s2;
+	while (*s2)
+		s2++;
+	len += ((size_t)s2 - start);
+	s2 -= ((size_t)s2 - start);
 	if (!(result = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	result_ptr = result;
 	while (*s1)
 		*result++ = *s1++;
 	while (*s2)
 		*result++ = *s2++;
 	*result = '\0';
-	return (result_ptr);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	start;
-
-	start = (size_t)s;
-	while (*s)
-		s++;
-	return ((size_t)s - start);
+	result -= len;
+	return (result);
 }
 
 char	*ft_strdup(const char *s)
 {
 	char	*dest;
-	char	*dest_ptr;
+	size_t	len;
+	size_t	start;
 
-	if (!(dest = malloc(sizeof(char) * (ft_strlen(s) + 1))))
+	start = (size_t)s;
+	while (*s)
+		s++;
+	len = (size_t)s - start;
+	s -= len;
+	if (!(dest = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	dest_ptr = dest;
 	while (*s)
 		*dest++ = (char)*s++;
 	*dest = '\0';
-	return (dest_ptr);
+	dest -= len;
+	return (dest);
 }
 
 char	*ft_strchr(const char *s, int c)

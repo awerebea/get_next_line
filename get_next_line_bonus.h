@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:42:55 by awerebea          #+#    #+#             */
-/*   Updated: 2020/05/18 17:29:43 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/05/19 15:50:03 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*
 ** fd - file descriptor
 ** rmndr - remainder of readed line from last iteration of GNL function
-** rmndr_strt - pointer to start of 'rmndr' string
+** rmndr_start - pointer to start of 'rmndr' string
 ** line_bckp - back up of pointer of 'line' string for cleaning memory
 */
 
@@ -28,7 +28,6 @@ typedef struct	s_list
 	int				fd;
 	char			*rmndr;
 	char			*rmndr_start;
-	char			*line_bckp;
 	struct s_list	*next;
 }				t_list;
 

@@ -6,7 +6,7 @@
 /*   By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:59:14 by awerebea          #+#    #+#             */
-/*   Updated: 2020/05/18 17:51:43 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/05/19 23:48:02 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ t_list	*f_gnl_new(int fd)
 	if (!(gnl = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
 	gnl->fd = fd;
-	gnl->rmndr = ft_strdup("");
+	gnl->rmndr = NULL;
+	gnl->rmndr_start = NULL;
 	gnl->next = NULL;
 	return (gnl);
 }

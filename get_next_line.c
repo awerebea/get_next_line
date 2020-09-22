@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:58:02 by awerebea          #+#    #+#             */
-/*   Updated: 2020/05/19 23:47:07 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/09/22 18:50:19 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 ** next sheet in list.
 */
 
-static int	f_exit(char *buf, int fd, t_list **g_head, int exit_code)
+static int	f_exit(char *buf, int fd, t_glst **g_head, int exit_code)
 {
-	t_list		*g_tmp;
-	t_list		*g_tmp_2;
+	t_glst		*g_tmp;
+	t_glst		*g_tmp_2;
 
 	free(buf);
 	g_tmp = *g_head;
@@ -51,7 +51,7 @@ static int	f_exit(char *buf, int fd, t_list **g_head, int exit_code)
 ** with exit code -1.
 */
 
-static int	f_chk_buf(char *buf, t_list *g_curr, t_list **g_head)
+static int	f_chk_buf(char *buf, t_glst *g_curr, t_glst **g_head)
 {
 	char			*tmp_ptr;
 
@@ -77,7 +77,7 @@ static int	f_chk_buf(char *buf, t_list *g_curr, t_list **g_head)
 ** In case of error we return to exit function with exit code -1.
 */
 
-static int	f_read_line(t_list *g_curr, t_list **g_head, char **line)
+static int	f_read_line(t_glst *g_curr, t_glst **g_head, char **line)
 {
 	long long		result;
 	char			*buf;
@@ -118,7 +118,7 @@ static int	f_read_line(t_list *g_curr, t_list **g_head, char **line)
 ** In case of error we return to exit function with exit code -1.
 */
 
-static int	f_chk_rmndr(t_list *g_curr, t_list **g_head, char **line)
+static int	f_chk_rmndr(t_glst *g_curr, t_glst **g_head, char **line)
 {
 	char			*tmp_ptr;
 	char			*start_pos;
@@ -155,8 +155,8 @@ static int	f_chk_rmndr(t_list *g_curr, t_list **g_head, char **line)
 
 int			get_next_line(int fd, char **line)
 {
-	static t_list	*g_head;
-	t_list			*g_curr;
+	static t_glst	*g_head;
+	t_glst			*g_curr;
 	const long long	buf_size = BUFFER_SIZE;
 	char			read_chk[1];
 

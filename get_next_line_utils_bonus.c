@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: awerebea <awerebea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: awerebea <awerebea@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 12:59:14 by awerebea          #+#    #+#             */
-/*   Updated: 2020/05/19 23:47:46 by awerebea         ###   ########.fr       */
+/*   Updated: 2020/09/22 18:38:23 by awerebea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ char	*ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
-t_list	*f_gnl_new(int fd)
+t_glst	*f_gnl_new(int fd)
 {
-	t_list		*gnl;
+	t_glst		*gnl;
 
-	if (!(gnl = (t_list*)malloc(sizeof(t_list))))
+	if (!(gnl = (t_glst*)malloc(sizeof(t_glst))))
 		return (NULL);
 	gnl->fd = fd;
 	gnl->rmndr = NULL;
@@ -85,9 +85,9 @@ t_list	*f_gnl_new(int fd)
 	return (gnl);
 }
 
-t_list	*f_search_gnl(int fd, t_list **g_head)
+t_glst	*f_search_gnl(int fd, t_glst **g_head)
 {
-	t_list			*g_tmp;
+	t_glst			*g_tmp;
 
 	if (!*g_head)
 		return ((*g_head = f_gnl_new(fd)) ? *g_head : NULL);
